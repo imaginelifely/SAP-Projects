@@ -1,0 +1,22 @@
+REPORT ztable_report2.
+
+DATA: it_table TYPE TABLE OF mard WITH HEADER LINE.
+
+SELECT * FROM mard INTO TABLE it_table.
+WRITE:/5 'MATNR'color 4,
+       25 sy-vline,
+       35 'WERKS'color 7,
+       48 sy-vline,
+       50 'LGORT'color 3,
+       58 sy-vline.
+ULINE.
+LOOP AT it_table.
+  WRITE:/5 it_table-matnr,
+         25 sy-vline,
+         35 it_table-werks,
+         48 sy-vline,
+         50 it_table-lgort,
+         58 sy-vline.
+ENDLOOP.
+ULINE.
+CLEAR it_table.
